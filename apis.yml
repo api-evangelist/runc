@@ -1,11 +1,19 @@
 aid: runc
 name: runc
 description: >-
-  runc is a CLI tool for spawning and running containers on Linux according to the OCI specification.
+  runc is a CLI tool for spawning and running containers on Linux according to
+  the OCI (Open Container Initiative) specification. It is the reference
+  implementation of the OCI runtime specification and is used as the default
+  low-level container runtime by Docker, containerd, and other container
+  platforms.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Containers
+  - Container Runtime
+  - OCI
+  - Linux
+  - Open Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/runc/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +23,34 @@ apis:
   - aid: runc:runc
     name: runc
     description: >-
-      runc is a CLI tool for spawning and running containers on Linux according to the OCI specification.
-    humanURL: https://github.com/api-evangelist/runc
+      runc is a CLI tool for spawning and running containers on Linux according
+      to the OCI (Open Container Initiative) specification. It is the reference
+      implementation of the OCI runtime specification, providing a lightweight
+      and portable container runtime that can be used independently or embedded
+      into higher-level container systems like Docker and containerd.
+    humanURL: https://github.com/opencontainers/runc
     tags:
       - Containers
-    properties: []
+      - Container Runtime
+      - OCI
+      - Linux
+      - Open Source
+    properties:
+      - type: Documentation
+        url: https://github.com/opencontainers/runc/blob/main/README.md
+      - type: Getting Started
+        url: https://github.com/opencontainers/runc#creating-an-oci-bundle
 common:
   - type: Website
-    url: https://github.com/api-evangelist/runc
+    url: https://opencontainers.org/
+  - type: GitHub Organization
+    url: https://github.com/opencontainers
+  - type: GitHub Repository
+    url: https://github.com/opencontainers/runc
+  - type: Blog
+    url: https://opencontainers.org/posts/blog/
+  - type: Documentation
+    url: https://github.com/opencontainers/runc/blob/main/README.md
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
