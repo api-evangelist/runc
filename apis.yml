@@ -9,10 +9,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Containers
   - Container Runtime
-  - OCI
+  - Containers
   - Linux
+  - OCI
   - Open Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/runc/refs/heads/main/apis.yml
@@ -30,10 +30,10 @@ apis:
       into higher-level container systems like Docker and containerd.
     humanURL: https://github.com/opencontainers/runc
     tags:
-      - Containers
       - Container Runtime
-      - OCI
+      - Containers
       - Linux
+      - OCI
       - Open Source
     properties:
       - type: Documentation
