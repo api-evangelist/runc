@@ -1,5 +1,5 @@
 aid: runc
-name: runc
+name: Runc
 description: >-
   runc is a CLI tool for spawning and running containers on Linux according to
   the OCI (Open Container Initiative) specification. It is the reference
@@ -21,7 +21,7 @@ modified: '2026-03-26'
 specificationVersion: '0.19'
 apis:
   - aid: runc:runc
-    name: runc
+    name: Runc
     description: >-
       runc is a CLI tool for spawning and running containers on Linux according
       to the OCI (Open Container Initiative) specification. It is the reference
