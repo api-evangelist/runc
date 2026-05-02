@@ -1,0 +1,152 @@
+name: Runc and OCI Container Runtime Vocabulary
+description: >-
+  Core vocabulary, terminology, and domain concepts used in runc, the OCI
+  container runtime reference implementation, and the broader Open Container
+  Initiative ecosystem.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+
+  - term: runc
+    definition: >-
+      A CLI tool for spawning and running containers on Linux according to the OCI
+      Runtime Specification. runc is the reference implementation used as the default
+      low-level container runtime by Docker, containerd, and other platforms.
+    tags:
+      - Container Runtime
+      - Open Source
+      - CLI
+
+  - term: OCI
+    definition: >-
+      Open Container Initiative. A Linux Foundation project that provides open
+      industry standards around container formats and runtimes. Defines the
+      Runtime Specification, Image Specification, and Distribution Specification.
+    tags:
+      - OCI
+      - Standard
+      - Container
+
+  - term: OCI Runtime Specification
+    definition: >-
+      The specification that defines how to run an OCI-compliant container bundle.
+      It describes the configuration, execution environment, and lifecycle of a
+      container. runc is the reference implementation.
+    tags:
+      - OCI
+      - Specification
+      - Standard
+
+  - term: Container Bundle
+    definition: >-
+      A directory containing everything needed to run a container: a config.json
+      file describing the container configuration and a rootfs directory containing
+      the root filesystem.
+    tags:
+      - Container
+      - OCI
+
+  - term: Namespace
+    definition: >-
+      A Linux kernel feature that isolates global system resources between processes.
+      Container runtimes use namespaces (pid, net, mnt, uts, ipc, user, cgroup) to
+      create isolated execution environments.
+    tags:
+      - Linux
+      - Isolation
+      - Security
+
+  - term: Cgroup
+    definition: >-
+      Linux Control Groups. A kernel feature for limiting, accounting, and isolating
+      resource usage (CPU, memory, disk I/O, network) of a group of processes.
+      Both cgroup v1 and v2 are supported by runc.
+    tags:
+      - Linux
+      - Resource Management
+      - Cgroup
+
+  - term: Rootless Container
+    definition: >-
+      A container that can be run without root privileges by using user namespaces.
+      runc supports rootless operation for improved security and enabling non-root
+      users to run containers.
+    tags:
+      - Security
+      - Container
+      - Linux
+
+  - term: CRIU
+    definition: >-
+      Checkpoint/Restore In Userspace. A Linux tool that allows saving the state
+      of a running process and restoring it later. runc supports CRIU for container
+      checkpoint and restore operations.
+    tags:
+      - CRIU
+      - Checkpoint
+      - Container
+
+  - term: seccomp
+    definition: >-
+      Secure Computing Mode. A Linux kernel feature used to restrict the system
+      calls a process can make. runc uses seccomp profiles to reduce the attack
+      surface of containers.
+    tags:
+      - Security
+      - Linux
+      - Syscall
+
+  - term: AppArmor
+    definition: >-
+      A Linux security module that restricts program capabilities using per-program
+      profiles. runc supports AppArmor profiles for additional container security.
+    tags:
+      - Security
+      - Linux
+      - AppArmor
+
+  - term: SELinux
+    definition: >-
+      Security-Enhanced Linux. A Linux kernel security module for mandatory access
+      control. runc supports SELinux labels for containers.
+    tags:
+      - Security
+      - Linux
+      - SELinux
+
+  - term: Container Lifecycle
+    definition: >-
+      The sequence of states a container can be in: creating, created, running,
+      stopped, and deleted. Managed via runc subcommands: create, start, pause,
+      resume, kill, delete.
+    tags:
+      - Container
+      - Lifecycle
+
+  - term: Low-Level Runtime
+    definition: >-
+      The component responsible for directly managing container processes on the
+      host OS. runc is a low-level runtime, while Docker and containerd are
+      higher-level runtimes that call runc internally.
+    tags:
+      - Container Runtime
+      - Architecture
+
+  - term: containerd
+    definition: >-
+      An industry-standard container runtime that manages the complete container
+      lifecycle and uses runc as its low-level runtime. Part of the CNCF ecosystem.
+    tags:
+      - Container Runtime
+      - CNCF
+      - containerd
+
+  - term: CNCF
+    definition: >-
+      Cloud Native Computing Foundation. A Linux Foundation project hosting cloud
+      native open source projects including Kubernetes, containerd, and related
+      container ecosystem tools.
+    tags:
+      - CNCF
+      - Open Source
+      - Cloud Native
