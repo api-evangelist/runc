@@ -1,0 +1,93 @@
+{
+  "name": "OCI Runtime Container Configuration Structure",
+  "description": "JSON structure documentation for the OCI Runtime Specification config.json used by runc. Describes all sections of the container configuration file.",
+  "version": "1.2.0",
+  "created": "2026-05-02",
+  "modified": "2026-05-02",
+  "source": "https://github.com/opencontainers/runtime-spec",
+  "sections": [
+    {
+      "name": "ociVersion",
+      "type": "string",
+      "required": true,
+      "description": "OCI Runtime Specification version (e.g., '1.2.0').",
+      "example": "1.2.0"
+    },
+    {
+      "name": "process",
+      "type": "object",
+      "required": true,
+      "description": "Container process configuration including command, environment, user, capabilities, and security.",
+      "fields": [
+        { "name": "terminal", "type": "boolean", "description": "Attach a terminal to the process." },
+        { "name": "user", "type": "object", "description": "UID/GID for the process." },
+        { "name": "args", "type": "array<string>", "required": true, "description": "Command and arguments to run." },
+        { "name": "env", "type": "array<string>", "description": "Environment variables (KEY=value)." },
+        { "name": "cwd", "type": "string", "description": "Working directory inside the container." },
+        { "name": "capabilities", "type": "object", "description": "Linux capabilities (bounding, effective, permitted, inheritable, ambient)." },
+        { "name": "noNewPrivileges", "type": "boolean", "description": "Prevent privilege escalation." }
+      ]
+    },
+    {
+      "name": "root",
+      "type": "object",
+      "required": true,
+      "description": "Root filesystem configuration.",
+      "fields": [
+        { "name": "path", "type": "string", "required": true, "description": "Path to root filesystem directory." },
+        { "name": "readonly", "type": "boolean", "description": "Mount root filesystem read-only." }
+      ]
+    },
+    {
+      "name": "hostname",
+      "type": "string",
+      "required": false,
+      "description": "Container hostname."
+    },
+    {
+      "name": "mounts",
+      "type": "array<object>",
+      "required": false,
+      "description": "Additional filesystem mounts for the container.",
+      "itemFields": [
+        { "name": "destination", "type": "string", "required": true, "description": "Mount destination inside container." },
+        { "name": "type", "type": "string", "description": "Filesystem type (proc, tmpfs, bind, etc.)." },
+        { "name": "source", "type": "string", "description": "Host source path." },
+        { "name": "options", "type": "array<string>", "description": "Mount options (rbind, ro, nosuid, etc.)." }
+      ]
+    },
+    {
+      "name": "linux",
+      "type": "object",
+      "required": false,
+      "description": "Linux-specific configuration including namespaces, cgroups, seccomp, and path masking.",
+      "fields": [
+        { "name": "namespaces", "type": "array<object>", "description": "Linux namespaces: pid, network, mount, ipc, uts, user, cgroup." },
+        { "name": "resources", "type": "object", "description": "Cgroup resource limits (memory, CPU, pids, blkio)." },
+        { "name": "seccomp", "type": "object", "description": "Seccomp system call filter profile." },
+        { "name": "maskedPaths", "type": "array<string>", "description": "Paths masked inside container." },
+        { "name": "readonlyPaths", "type": "array<string>", "description": "Paths made read-only inside container." }
+      ]
+    },
+    {
+      "name": "hooks",
+      "type": "object",
+      "required": false,
+      "description": "Lifecycle hooks executed at container lifecycle points.",
+      "fields": [
+        { "name": "prestart", "type": "array<Hook>", "description": "Executed after start, before process runs (deprecated in OCI 1.2)." },
+        { "name": "createRuntime", "type": "array<Hook>", "description": "Executed during create runtime namespace." },
+        { "name": "createContainer", "type": "array<Hook>", "description": "Executed in container namespace during create." },
+        { "name": "startContainer", "type": "array<Hook>", "description": "Executed in container namespace before process." },
+        { "name": "poststart", "type": "array<Hook>", "description": "Executed after container process starts." },
+        { "name": "poststop", "type": "array<Hook>", "description": "Executed after container process stops." }
+      ]
+    },
+    {
+      "name": "annotations",
+      "type": "object<string,string>",
+      "required": false,
+      "description": "Arbitrary key-value metadata attached to the container."
+    }
+  ]
+}

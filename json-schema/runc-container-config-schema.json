@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/runc/blob/main/json-schema/runc-container-config-schema.json",
+  "title": "OCI Runtime Container Configuration",
+  "description": "JSON Schema for the OCI Runtime Specification container configuration (config.json). This file defines the container's execution environment, process, mounts, namespaces, cgroups, and security settings as required by runc and the OCI Runtime Spec.",
+  "type": "object",
+  "required": ["ociVersion", "process", "root"],
+  "properties": {
+    "ociVersion": {
+      "type": "string",
+      "description": "The version of the OCI Runtime Specification with which the bundle complies."
+    },
+    "process": {
+      "type": "object",
+      "description": "The container process configuration.",
+      "required": ["args"],
+      "properties": {
+        "terminal": {
+          "type": "boolean",
+          "description": "Whether a terminal is attached to the process."
+        },
+        "user": {
+          "type": "object",
+          "description": "The user executing the process.",
+          "properties": {
+            "uid": { "type": "integer", "description": "User ID." },
+            "gid": { "type": "integer", "description": "Group ID." },
+            "additionalGids": {
+              "type": "array",
+              "items": { "type": "integer" },
+              "description": "Additional group IDs."
+            }
+          }
+        },
+        "args": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "The command to run with arguments. args[0] is the executable path."
+        },
+        "env": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Environment variables for the container process in KEY=value format."
+        },
+        "cwd": {
+          "type": "string",
+          "description": "The working directory of the container process."
+        },
+        "capabilities": {
+          "type": "object",
+          "description": "Linux capabilities for the process.",
+          "properties": {
+            "bounding": { "type": "array", "items": { "type": "string" } },
+            "effective": { "type": "array", "items": { "type": "string" } },
+            "inheritable": { "type": "array", "items": { "type": "string" } },
+            "permitted": { "type": "array", "items": { "type": "string" } },
+            "ambient": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "noNewPrivileges": {
+          "type": "boolean",
+          "description": "If true, the process cannot gain additional privileges via setuid/setgid."
+        }
+      }
+    },
+    "root": {
+      "type": "object",
+      "description": "The root filesystem configuration.",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path to the root filesystem directory (absolute or relative to bundle)."
+        },
+        "readonly": {
+          "type": "boolean",
+          "description": "If true, the root filesystem is mounted read-only."
+        }
+      }
+    },
+    "hostname": {
+      "type": "string",
+      "description": "The hostname to set inside the container."
+    },
+    "mounts": {
+      "type": "array",
+      "description": "Additional filesystem mounts for the container.",
+      "items": {
+        "type": "object",
+        "required": ["destination"],
+        "properties": {
+          "destination": { "type": "string", "description": "Destination path inside the container." },
+          "type": { "type": "string", "description": "Filesystem type (e.g., proc, tmpfs, bind)." },
+          "source": { "type": "string", "description": "Source path on the host." },
+          "options": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Mount options (e.g., rbind, ro, nosuid)."
+          }
+        }
+      }
+    },
+    "linux": {
+      "type": "object",
+      "description": "Linux-specific configuration for the container.",
+      "properties": {
+        "namespaces": {
+          "type": "array",
+          "description": "Linux namespaces for the container.",
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["pid", "network", "mount", "ipc", "uts", "user", "cgroup"],
+                "description": "The type of namespace."
+              },
+              "path": {
+                "type": "string",
+                "description": "Path to the namespace file (for sharing an existing namespace)."
+              }
+            }
+          }
+        },
+        "resources": {
+          "type": "object",
+          "description": "Cgroup resource limits for the container.",
+          "properties": {
+            "memory": {
+              "type": "object",
+              "properties": {
+                "limit": { "type": "integer", "description": "Memory limit in bytes." },
+                "swap": { "type": "integer", "description": "Memory + swap limit in bytes." },
+                "reservation": { "type": "integer", "description": "Memory soft limit in bytes." }
+              }
+            },
+            "cpu": {
+              "type": "object",
+              "properties": {
+                "shares": { "type": "integer", "description": "CPU shares (relative weight)." },
+                "quota": { "type": "integer", "description": "CPU CFS quota in microseconds." },
+                "period": { "type": "integer", "description": "CPU CFS period in microseconds." }
+              }
+            }
+          }
+        },
+        "seccomp": {
+          "type": "object",
+          "description": "Seccomp profile for system call filtering.",
+          "properties": {
+            "defaultAction": { "type": "string", "description": "Default action for unmatched syscalls." },
+            "syscalls": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "names": { "type": "array", "items": { "type": "string" } },
+                  "action": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "maskedPaths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths that should be masked inside the container."
+        },
+        "readonlyPaths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths that should be read-only inside the container."
+        }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "description": "Lifecycle hooks for the container.",
+      "properties": {
+        "prestart": { "type": "array", "items": { "$ref": "#/$defs/Hook" } },
+        "createRuntime": { "type": "array", "items": { "$ref": "#/$defs/Hook" } },
+        "createContainer": { "type": "array", "items": { "$ref": "#/$defs/Hook" } },
+        "startContainer": { "type": "array", "items": { "$ref": "#/$defs/Hook" } },
+        "poststart": { "type": "array", "items": { "$ref": "#/$defs/Hook" } },
+        "poststop": { "type": "array", "items": { "$ref": "#/$defs/Hook" } }
+      }
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Arbitrary metadata for the container as key-value string pairs.",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "Hook": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string", "description": "Absolute path to the hook executable." },
+        "args": { "type": "array", "items": { "type": "string" } },
+        "env": { "type": "array", "items": { "type": "string" } },
+        "timeout": { "type": "integer", "description": "Timeout in seconds." }
+      }
+    }
+  }
+}

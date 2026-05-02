@@ -1,0 +1,81 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "oci": "https://opencontainers.org/schema/",
+    "runc": "https://github.com/opencontainers/runc#",
+
+    "ContainerConfig": "oci:ContainerConfig",
+    "ociVersion": "oci:ociVersion",
+    "process": "oci:process",
+    "root": "oci:root",
+    "hostname": "schema:name",
+    "mounts": "oci:mounts",
+    "annotations": "schema:additionalProperty",
+
+    "Process": "oci:Process",
+    "terminal": "oci:terminal",
+    "user": "schema:agent",
+    "args": "oci:args",
+    "env": "oci:env",
+    "cwd": "oci:cwd",
+    "capabilities": "oci:capabilities",
+    "noNewPrivileges": "oci:noNewPrivileges",
+
+    "RootFilesystem": "oci:RootFilesystem",
+    "path": "oci:path",
+    "readonly": "oci:readonly",
+
+    "Mount": "oci:Mount",
+    "destination": "oci:destination",
+    "source": "oci:source",
+    "type": "schema:additionalType",
+    "options": "oci:mountOptions",
+
+    "LinuxConfig": "oci:LinuxConfig",
+    "namespaces": "oci:namespaces",
+    "resources": "oci:resources",
+    "seccomp": "oci:seccomp",
+    "maskedPaths": "oci:maskedPaths",
+    "readonlyPaths": "oci:readonlyPaths",
+
+    "Namespace": "oci:Namespace",
+    "namespaceType": "oci:namespaceType",
+
+    "CgroupResources": "oci:CgroupResources",
+    "memory": "oci:memoryResources",
+    "cpu": "oci:cpuResources",
+    "pids": "oci:pidsResources",
+
+    "SeccompProfile": "oci:SeccompProfile",
+    "defaultAction": "oci:defaultAction",
+    "syscalls": "oci:syscalls",
+
+    "Hook": "oci:Hook",
+    "timeout": "oci:timeout",
+
+    "ContainerRuntime": {
+      "@id": "schema:SoftwareApplication",
+      "@type": "@id"
+    },
+    "openContainersProject": {
+      "@id": "schema:isPartOf",
+      "@type": "@id"
+    },
+    "implementsSpec": {
+      "@id": "schema:isBasedOn",
+      "@type": "@id"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "codeRepository": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    },
+    "programmingLanguage": "schema:programmingLanguage",
+    "operatingSystem": "schema:operatingSystem",
+    "softwareVersion": "schema:softwareVersion"
+  }
+}
