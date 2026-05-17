@@ -55,9 +55,9 @@ apis:
     properties:
       - type: Documentation
         url: https://github.com/opencontainers/runc/blob/main/README.md
-      - type: Getting Started
+      - type: GettingStarted
         url: https://github.com/opencontainers/runc#creating-an-oci-bundle
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/opencontainers/runc
       - type: Specification
         url: https://github.com/opencontainers/runtime-spec
@@ -67,7 +67,7 @@ apis:
         url: https://github.com/opencontainers/runc/blob/main/LICENSE
       - type: Security
         url: https://github.com/opencontainers/runc/blob/main/SECURITY.md
-      - type: Changelog
+      - type: ChangeLog
         url: https://github.com/opencontainers/runc/blob/main/CHANGELOG.md
       - type: JSONSchema
         url: json-schema/runc-container-config-schema.json
@@ -82,9 +82,9 @@ apis:
 common:
   - type: Website
     url: https://opencontainers.org/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/opencontainers
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/opencontainers/runc
   - type: Blog
     url: https://opencontainers.org/posts/blog/
