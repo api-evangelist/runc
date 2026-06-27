@@ -61,7 +61,7 @@ apis:
         url: https://github.com/opencontainers/runc
       - type: Specification
         url: https://github.com/opencontainers/runtime-spec
-      - type: Releases
+      - type: ReleaseNotes
         url: https://github.com/opencontainers/runc/releases
       - type: License
         url: https://github.com/opencontainers/runc/blob/main/LICENSE
@@ -75,7 +75,7 @@ apis:
         url: json-structure/runc-container-config-structure.json
       - type: JSONLD
         url: json-ld/runc-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/runc-container-config-example.json
       - type: Vocabulary
         url: vocabulary/runc-vocabulary.yml
