@@ -80,6 +80,8 @@ apis:
       - type: Vocabulary
         url: vocabulary/runc-vocabulary.yml
 common:
+  - type: DomainSecurity
+    url: security/runc-domain-security.yml
   - type: Website
     url: https://opencontainers.org/
   - type: GitHubOrganization
