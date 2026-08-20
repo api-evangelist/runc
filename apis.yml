@@ -33,6 +33,15 @@ tags:
   - Containers
   - Linux
   - OCI
+  - Open-Source
+  - CNCF
+  - Open Container Initiative
+  - Cloud-Native
+tags_raw:
+  - Container Runtime
+  - Containers
+  - Linux
+  - OCI
   - Open Source
   - CNCF
   - Open Container Initiative
@@ -56,6 +65,15 @@ apis:
       config.json file following the OCI Runtime Specification schema.
     humanURL: https://github.com/opencontainers/runc
     tags:
+      - Container Runtime
+      - Containers
+      - Linux
+      - OCI
+      - Open-Source
+      - CNCF
+      - Open Container Initiative
+      - Cloud-Native
+    tags_raw:
       - Container Runtime
       - Containers
       - Linux
