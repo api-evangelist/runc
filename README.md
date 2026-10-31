@@ -1,4 +1,4 @@
-# Runc (runc)
+# Runc
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,84 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-runc is a CLI tool for spawning and running containers on Linux according to the OCI (Open Container Initiative) specification. It is the reference implementation of the OCI runtime specification and is used as the default low-level container runtime by Docker, containerd, Podman, and other container platforms. runc manages container lifecycle operations including creating, starting, pausing, resuming, killing, and deleting containers. It implements the OCI Runtime Specification and exposes a command-line interface that higher-level runtimes use to manage individual container instances. runc also supports checkpoint/restore via CRIU, rootless containers, cgroup v2, seccomp syscall filtering, AppArmor, and SELinux.
+runc is a CLI tool for spawning and running containers on Linux according to the OCI (Open Container Initiative) specification. It is the reference implementation of the OCI runtime specification and is used as the default low-level container runtime by Docker, containerd, Podman, and other container platforms. runc manages container lifecycle operations including creating, starting, pausing, resuming, killing, and deleting containers. It implements the OCI Runtime Specification and exposes a command-line interface that higher-level runtimes use to manage individual container instances. runc also supports checkpoint/restore via CRIU, rootless containers (no root privileges needed via user namespaces), cgroup v2, seccomp syscall filtering, AppArmor, SELinux, and Intel Memory Protection Extensions. The current stable release line is 1.3.x (runc 1.5.0 expected late April 2026).
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/runc/refs/heads/main/apis.yml)
+**Areas:** Container Runtime · Containers · Linux · OCI · Open Source · CNCF · Open Container Initiative · Cloud-Native
 
-## Scope
+## Runc on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Runc is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/runc/](https://apis.io/providers/runc/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (1)
 
- - Container Runtime, Containers, Linux, OCI, Open Source, CNCF, Open Container Initiative, Cloud Native
+- [Runc](https://apis.io/apis/runc/runc/) — runc is a CLI tool for spawning and running containers on Linux according to the OCI (Open Container Initiative) specification. It is the reference…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-02
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON Schema (1)
 
-### Runc
-runc is a CLI tool for spawning and running containers on Linux according to the OCI (Open Container Initiative) specification. It is the reference implementation of the OCI runtime specification, providing a lightweight and portable container runtime that can be used independently or embedded into higher-level container systems like Docker and containerd. runc implements the full OCI Runtime Spec lifecycle: create, start, state, kill, delete. It also supports checkpoint/restore via CRIU, rootless containers, and cgroup v2. The container configuration is defined in a config.json file following the OCI Runtime Specification schema.
+The data models the API reads and writes.
 
-**Human URL:** [https://github.com/opencontainers/runc](https://github.com/opencontainers/runc)
+- [OCI Runtime Container Configuration](https://apis.io/schemas/runc/runc-container-config/)
 
-#### Tags:
+#### JSON Structure (1)
 
- - Container Runtime, Containers, Linux, OCI, Open Source, CNCF, Open Container Initiative, Cloud Native
+Data models expressed in JSON Structure.
 
-#### Properties
+- [Runc Container Config Structure](https://apis.io/json-structure/runc/runc-container-config-structure/)
 
-- [Documentation](https://github.com/opencontainers/runc/blob/main/README.md)
-- [Getting Started](https://github.com/opencontainers/runc#creating-an-oci-bundle)
-- [GitHub Repository](https://github.com/opencontainers/runc)
-- [Specification](https://github.com/opencontainers/runtime-spec)
-- [Releases](https://github.com/opencontainers/runc/releases)
-- [License](https://github.com/opencontainers/runc/blob/main/LICENSE)
-- [Security](https://github.com/opencontainers/runc/blob/main/SECURITY.md)
-- [Changelog](https://github.com/opencontainers/runc/blob/main/CHANGELOG.md)
-- [JSON Schema](json-schema/runc-container-config-schema.json)
-- [JSON Structure](json-structure/runc-container-config-structure.json)
-- [JSON-LD Context](json-ld/runc-context.jsonld)
-- [Example Container Config](examples/runc-container-config-example.json)
-- [Vocabulary](vocabulary/runc-vocabulary.yml)
+#### JSON-LD (1)
 
-## JSON Schema
+Linked-data contexts for the provider's vocabulary.
 
-- [OCI Runtime Container Configuration Schema](json-schema/runc-container-config-schema.json)
+- [Runc Context](https://apis.io/jsonld/runc/runc-context/)
 
-## JSON Structure
+#### Vocabulary (1)
 
-- [OCI Runtime Container Configuration Structure](json-structure/runc-container-config-structure.json)
+The provider's domain terms, defined.
 
-## JSON-LD
+- [Runc and OCI Container Runtime Vocabulary](https://apis.io/vocabularies/runc/runc-vocabulary/)
 
-- [Runc JSON-LD Context](json-ld/runc-context.jsonld)
+#### Examples (1)
 
-## Examples
+Example requests and responses.
 
-- [Example OCI Container Config (config.json)](examples/runc-container-config-example.json)
+- [Runc Container Config Example](https://apis.io/examples/runc/runc-container-config-example/)
 
-## Vocabulary
+#### Governance rules (1)
 
-- [Runc and OCI Container Runtime Vocabulary](vocabulary/runc-vocabulary.yml)
+Spectral rulesets for the provider's contracts.
 
-## Common Properties
+- [Runc — jsonschema rules](https://apis.io/rules/runc/runc-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Runc Domain Security](https://apis.io/security/runc/runc-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Runc Plans Pricing](https://apis.io/plans/runc/runc-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Runc Rate Limits](https://apis.io/rate-limits/runc/runc-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Runc Finops](https://apis.io/finops/runc/runc-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://opencontainers.org/)
-- [GitHub Organization](https://github.com/opencontainers)
-- [GitHub Repository](https://github.com/opencontainers/runc)
-- [Blog](https://opencontainers.org/posts/blog/)
 - [Documentation](https://github.com/opencontainers/runc/blob/main/README.md)
-- [Specification](https://github.com/opencontainers/runtime-spec)
+- [Blog](https://opencontainers.org/posts/blog/)
 - [Security](https://github.com/opencontainers/runc/blob/main/SECURITY.md)
+- [GitHub](https://github.com/opencontainers)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 32.5** — thin · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 24.4 |
+| Contract governance | 23.5 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 1.9** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/runc/](https://apis.io/providers/runc/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Runc: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/runc/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
